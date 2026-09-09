@@ -1,0 +1,505 @@
+@media (max-width: 1200px) {
+
+    header nav .downnav {
+        padding: 15px 4%;
+    }
+
+    header .container {
+        padding: 80px 4%;
+        gap: 40px;
+    }
+
+    header .container .right h1 {
+        font-size: 70px;
+    }
+
+    header .container .left .image img {
+        width: 470px;
+        height: 570px;
+    }
+
+    header .container .right>div {
+        width: 500px;
+    }
+
+    header nav .downnav .links ul li {
+        padding: 0 10px;
+    }
+
+    .find-out,
+    .variety {
+        padding: 70px 4%;
+    }
+
+    .find-out .container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+    }
+
+    .find-out .container .card .image {
+        width: 100%;
+        height: 220px;
+    }
+
+    section .cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    section .cards .card div:first-child {
+        width: 100%;
+    }
+
+    #cart {
+        width: 45%;
+    }
+}
+
+@media (max-width: 992px) {
+
+    header nav .downnav {
+        padding: 15px 3%;
+    }
+
+    header nav .downnav .links ul li {
+        padding: 0 7px;
+    }
+
+    header nav .downnav .links ul li a {
+        font-size: 13px;
+    }
+
+    header nav .downnav .search {
+        gap: 10px;
+    }
+
+    header nav .downnav .search input {
+        width: 180px;
+        padding: 10px 15px;
+    }
+
+    ::placeholder {
+        font-size: 14px;
+    }
+
+    header .container {
+        padding: 60px 3%;
+        align-items: center;
+    }
+
+    header .container .right {
+        gap: 15px;
+    }
+
+    header .container .right h1 {
+        font-size: 55px;
+    }
+
+    header .container .right>p {
+        font-size: 13px;
+    }
+
+    header .container .right>div {
+        width: 400px;
+        gap: 10px;
+    }
+
+    .btn-one,
+    .btn-two {
+        padding: 8px 25px;
+    }
+
+    header .container .left .image img {
+        width: 380px;
+        height: 500px;
+    }
+
+    header .container .left .image .one,
+    header .container .left .image .two {
+        width: 170px;
+    }
+
+    .find-out,
+    .variety {
+        padding: 60px 3%;
+    }
+
+    .sec-heading h2 {
+        font-size: 30px;
+    }
+
+    .find-out .container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .find-out .container .card .image {
+        height: 210px;
+    }
+
+    section .cards {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+
+    section .cards .card {
+        gap: 12px;
+    }
+
+    section .cards .card h3 {
+        font-size: 14px;
+    }
+
+    #cart {
+        width: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    header nav .downnav {
+        position: relative;
+    }
+
+    header nav .downnav .links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        background-color: #f6f3f2;
+        z-index: 10;
+        padding: 20px;
+    }
+
+    header nav .downnav .links.active {
+        display: block;
+    }
+
+    header nav .downnav .links ul {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    header nav .downnav .links ul li {
+        padding: 5px;
+    }
+
+    .menu-icon {
+        display: flex;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .menu-icon:hover {
+        background-color: var(--beige-color);
+    }
+
+    header nav .downnav .search input {
+        width: 160px;
+    }
+
+    header .container {
+        flex-direction: column;
+        padding: 60px 5%;
+    }
+
+    header .container .right {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+
+    header .container .right>b {
+        margin: auto;
+    }
+
+    header .container .right h1 {
+        font-size: 55px;
+    }
+
+    header .container .right>div {
+        width: 100%;
+        justify-content: center;
+    }
+
+    header .container .right article {
+        justify-content: center;
+    }
+
+    header .container .left {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    header .container .left .image img {
+        width: 450px;
+        height: 500px;
+    }
+
+    .find-out,
+    .variety {
+        padding: 60px 5%;
+    }
+
+    .sec-heading {
+        text-align: center;
+        align-items: center;
+    }
+
+    .find-out .container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .find-out .container .card .image {
+        width: 100%;
+        height: 230px;
+    }
+
+    section .container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    section .cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    section .cards .card div:first-child {
+        height: 330px;
+    }
+
+    #cart {
+        width: 65%;
+    }
+}
+
+@media (max-width: 576px) {
+
+    header nav .topnav {
+        font-size: 9px;
+    }
+
+    header nav .downnav {
+        padding: 12px 5%;
+    }
+
+    header nav .downnav .logo h3 {
+        font-size: 16px;
+    }
+
+    header nav .downnav .logo p {
+        font-size: 9px;
+    }
+
+    header nav .downnav .search {
+        gap: 5px;
+    }
+
+    header nav .downnav .search input {
+        width: 130px;
+        padding: 9px 10px;
+    }
+
+    ::placeholder {
+        font-size: 11px;
+    }
+
+    header .container {
+        padding: 50px 5%;
+    }
+
+    header .container .right h1 {
+        font-size: 40px;
+    }
+
+    header .container .right>p {
+        font-size: 12px;
+    }
+
+    header .container .right>div {
+        flex-direction: column;
+        border-bottom: none;
+        padding-bottom: 20px;
+    }
+
+    header .container .right>div button {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    header .container .right article {
+        width: 100%;
+        justify-content: space-around;
+        gap: 5px;
+    }
+
+    header .container .right article div b {
+        font-size: 18px;
+    }
+
+    header .container .left .image img {
+        width: 100%;
+        height: 430px;
+        border-radius: 30% 30% 20px 20px;
+    }
+
+    header .container .left .image .one,
+    header .container .left .image .two {
+        width: 150px;
+        padding: 8px 12px;
+    }
+
+    header .container .left .image .one {
+        left: -10px;
+        top: 30px;
+    }
+
+    header .container .left .image .two {
+        right: 10px;
+        bottom: -15px;
+    }
+
+    header .container .left .image .two h3,
+    header .container .left .image .one h3 {
+        font-size: 12px;
+    }
+
+    header .container .left .image .two p,
+    header .container .left .image .one p {
+        font-size: 9px;
+    }
+
+    .find-out,
+    .variety {
+        padding: 50px 5%;
+    }
+
+    .sec-heading h2 {
+        font-size: 25px;
+    }
+
+    .sec-heading p {
+        font-size: 11px;
+    }
+
+    .find-out .container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .find-out .container .card .image {
+        height: 180px;
+        border-radius: 15px;
+    }
+
+    .find-out .container .card .image .one {
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .find-out .container .card .image div h2 {
+        font-size: 15px;
+    }
+
+    .find-out .container .card .image div p {
+        font-size: 9px;
+    }
+
+    section .cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    section .cards .card {
+        gap: 10px;
+    }
+
+    section .cards .card div:first-child {
+        height: 250px;
+        border-radius: 8px;
+    }
+
+    section .cards .card div:first-child i {
+        width: 32px;
+        height: 32px;
+        font-size: 14px;
+        top: 7px;
+        left: 7px;
+    }
+
+    section .cards .card h3 {
+        font-size: 12px;
+    }
+
+    section .cards .card div:nth-child(2) p {
+        font-size: 9px;
+    }
+
+    section .cards .card div:nth-child(2) div span {
+        font-size: 10px;
+    }
+
+    section .cards .card div:last-child b {
+        font-size: 11px;
+    }
+
+    section .cards .card div:last-child button {
+        width: 32px;
+        height: 32px;
+    }
+
+    del {
+        font-size: 9px;
+    }
+
+    .p {
+        font-size: 8px;
+        padding: 0 6px;
+    }
+
+    #cart {
+        width: 85%;
+    }
+
+    #cart .Empty-basket>div h3 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 400px) {
+
+    header nav .downnav .search input {
+        width: 105px;
+    }
+
+    header .container .right h1 {
+        font-size: 34px;
+    }
+
+    header .container .left .image img {
+        height: 380px;
+    }
+
+    .find-out .container .card .image {
+        height: 160px;
+    }
+
+    section .cards .card div:first-child {
+        height: 220px;
+    }
+
+    section .cards .card div:last-child {
+        flex-wrap: wrap;
+    }
+
+    #cart {
+        width: 90%;
+    }
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./icons/css/all.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/media.css">
+</head>
+<body>
+<div id="cart">
+    <div class="Empty-basket">
+        <div>
+            <p>مشترياتك</p>
+            <h3 id="cartCount">سلة التسوق (0)</h3>
+        </div>
+        <i id="mark" class="fa-solid fa-xmark"></i>
+    </div>
+    <hr>
+    <div class="empty-container">
+        <i class="fa-solid fa-basket-shopping"></i>
+        <h3>سلتك فارغه</h3>
+        <p>ابدأ بإضافة ما يعجبك من التشكيلة.</p>
+        <button class="btn-one" onclick="location.href='#project'">استكشف المنتجات</button>
+    </div>
+    <div class="container"></div>
+    <div class="cart-total">
+        <div>
+            <span>الإجمالي</span>
+            <b id="subTotal">0 ج.م</b>
+        </div>
+        <div>
+            <span>التوصيل</span>
+            <b>55 ج.م</b>
+        </div>
+        <hr>
+        <div>
+            <span>الإجمالي النهائي</span>
+            <b id="totalPrice">55 ج.م</b>
+        </div>
+        <button class="btn-one">إتمام العملية</button>
+    </div>
+</div>
+<header>
+    <nav>
+        <div class="topnav">
+            <p> شحن مجاني للطلبات فوق ١٠٠٠ ج.م <span>•</span> استبدال سهل خلال ١٤ يوماً</p>
+        </div>
+        <div class="downnav" id="home">
+            <div class="logo">
+                <h3>YOSEF</h3>
+                <p>store</p>
+            </div>
+            <div class="links">
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#project">المنتجات</a></li>
+                    <li><a href="#Sections">الأقسام</a></li>
+                    <li><a href="#Offers">العروض</a></li>
+                    <li><a href="">من نحن</a></li>
+                    <li><a href="">تواصل معنا</a></li>
+                </ul>
+            </div>
+            <div class="search">
+                <input id="search" type="text" placeholder="&#128269; ابحث عن اسم المنتج">
+                <button id="btn"><i class="fa-solid fa-basket-shopping"></i></button>
+                <div class="menu-icon" id="menuIcon">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="right">
+            <b>&#10024; مجموعة الموسم الجديد 2026</b>
+            <h1>اكتشف <span>ستايلك الجديد</span></h1>
+            <p>أحدث صيحات الموضة بجودة عالية وأسعار مناسبة</p>
+            <div>
+                <button class="btn-one">
+                    <span onclick="location.href='#project'">تسوق الان</span>
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <button class="btn-two">
+                    <span>اكتشف العروض</span>
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+            </div>
+            <article>
+                <div>
+                    <b>١٢+</b>
+                    <p>منتج مختار</p>
+                </div>
+                <div>
+                    <b>١٤</b>
+                    <p>يوم للاستبدال</p>
+                </div>
+                <div>
+                    <b>١٠٠٪</b>
+                    <p>جودة مضمونة</p>
+                </div>
+            </article>
+        </div>
+        <div class="left">
+            <div class="image">
+                <img src="image/pexels-photo-994523.jpeg" alt="phote">
+                <div class="one">
+                    <p>اختيار المحررين</p>
+                    <h3>تفاصيل تصنع الفرق</h3>
+                </div>
+                <div class="two">
+                    <p>توصيل سريع</p>
+                    <h3>إلى بابك خلال ٢–٤ أيام</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="find-out" id="Sections">
+    <div class="sec-heading">
+        <b>اكتشف تشكيلتنا</b>
+        <h2>اختار مساحتك</h2>
+        <p>تشكيلة منتقاة بعناية لتجد القطعة التي تشبهك، مهما كان مزاجك أو يومك.</p>
+    </div>
+    <div class="container" id="container">
+    </div>
+</section>
+<section class="variety" id="project">
+    <div class="sec-heading">
+        <b>تشكيلة <span>YOSEF</span></b>
+        <h2>قطع تستحق مكاناً في خزانتك</h2>
+        <p>اختيارات عملية وأنيقة، صُممت لتعيش معك أكثر من موسم.</p>
+    </div>
+    <div class="container">
+        <a href="" class="btn-two">الكل</a>
+        <a href="" class="btn-two">رجالي</a>
+        <a href="" class="btn-two">حريمي</a>
+        <a href="" class="btn-two">أطفال</a>
+        <a href="" class="btn-two">أحذية</a>
+        <a href="" class="btn-two">إكسسوارات</a>
+    </div>
+    <div class="cards">
+    </div>
+</section>
+<script src="main.js"></script>
+</body>
+</html>
