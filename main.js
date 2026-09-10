@@ -331,7 +331,7 @@ checkoutButton.addEventListener('click', function (e) {
                 <label>البريد الإلكتروني</label>
                 <input type="email" name="email" placeholder="اكتب البريد الإلكتروني" required>
                 <label>رقم الهاتف</label>
-                <input type="number" name="phone" placeholder="اكتب رقم الهاتف" required>
+                <input type="tel" name="phone" placeholder="اكتب رقم الهاتف" required>
                 <div class="checkout-order">
                     <h3>تفاصيل الطلب</h3>
                     <p>${orderDetails}</p>
