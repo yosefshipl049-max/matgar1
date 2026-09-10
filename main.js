@@ -266,7 +266,7 @@ function showCart() {
         cartContainer.style.display = 'none';
         cartTotal.style.display = 'none';
         cartNumber.innerHTML = '0';
-        cartCount.innerHTML = 'سلة التسوق (0)';
+        cartCount.innerHTML = 'سلة التسوق (1)';
         subTotal.innerHTML = '0 ج.م';
         totalPrice.innerHTML = '55 ج.م';
     }
