@@ -104,22 +104,28 @@ const products = [
     },
     {
         Type: 'إكسسوارات',
-        name: 'كاب', price: '١٥٩ ج.م',
-        evaluation: '4.5', del: '',
+        name: 'كاب',
+        price: '١٥٩ ج.م',
+        evaluation: '4.5',
+        del: '',
         discount: '',
         image: '10.jpeg'
     },
     {
         Type: 'إكسسوارات',
-        name: 'حقيبة', price: '٥٤٩ ج.م',
-        evaluation: '4.8', del: '٦٦٠ ج.م',
+        name: 'حقيبة',
+        price: '٥٤٩ ج.م',
+        evaluation: '4.8',
+        del: '٦٦٠ ج.م',
         discount: '17%',
         image: '11.jpeg'
     },
     {
         Type: 'إكسسوارات',
-        name: 'ساعة', price: '٣٨٩ ج.م',
-        evaluation: '4.6', del: '',
+        name: 'ساعة',
+        price: '٣٨٩ ج.م',
+        evaluation: '4.6',
+        del: '',
         discount: '',
         image: '12.jpeg'
     }
@@ -175,6 +181,7 @@ for (let i = 0; i < products.length; i++) {
 let container = document.querySelector('#container');
 let card = cards.querySelectorAll('.card');
 let hearts = cards.querySelectorAll('.fa-heart');
+let message = document.querySelector('#message');
 for (let i = 0; i < hearts.length; i++) {
     hearts[i].addEventListener('click', function () {
         hearts[i].style.color = 'red';
@@ -219,7 +226,6 @@ let cartTotal = cart.querySelector('.cart-total');
 let cartCount = document.querySelector('#cartCount');
 let cartNumber = document.querySelector('#cartNumber');
 let subTotal = document.querySelector('#subTotal');
-let message = document.querySelector('#message');
 let totalPrice = document.querySelector('#totalPrice');
 cartContainer.style.display = 'none';
 cartTotal.style.display = 'none';
@@ -241,7 +247,9 @@ function showCart() {
                         <h3>${cartProducts[j].name}</h3>
                         <p>${cartProducts[j].Type}</p>
                         <b>${cartProducts[j].price}</b>
-                        <button class="delete-product" data-index="${j}"><i class="fa-solid fa-trash"></i></button>
+                        <button class="delete-product" data-index="${j}">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
                     </div>
                     <div class="cart-image">
                         <img src="./image/${cartProducts[j].image}" alt="">
@@ -284,4 +292,68 @@ cartContainer.addEventListener('click', function (e) {
         localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
         showCart();
     }
+});
+let ownerEmail = 'yosefshipl049@gmail.com';
+let checkoutButton = cart.querySelector('.cart-total .btn-one');
+checkoutButton.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (cartProducts.length === 0) {
+        message.innerHTML = 'السلة فارغة';
+        message.style.display = 'block';
+        setTimeout(function () {
+            message.style.display = 'none';
+        }, 1000);
+        return;
+    }
+    let orderDetails = '';
+    let total = 0;
+    for (let i = 0; i < cartProducts.length; i++) {
+        let price = cartProducts[i].price.replace('ج.م', '').replace(/[٠-٩]/g, function (num) {
+            return '٠١٢٣٤٥٦٧٨٩'.indexOf(num);
+        });
+        total += Number(price);
+        orderDetails += `${i + 1}- ${cartProducts[i].name} - ${cartProducts[i].Type} - ${cartProducts[i].price}\n`;
+    }
+    let finalTotal = total + 55;
+    cart.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    cart.innerHTML = `
+        <div class="checkout-page">
+            <div class="checkout-header">
+                <div>
+                    <h2>إتمام الطلب</h2>
+                    <p>أدخل بياناتك لإتمام الطلب</p>
+                </div>
+                <i class="fa-solid fa-xmark checkout-close"></i>
+            </div>
+            <hr>
+            <form class="checkout-form" action="https://formsubmit.co/b38198e0851b2b062e146d010a10cdb5" method="POST">
+                <label>البريد الإلكتروني</label>
+                <input type="email" name="email" placeholder="اكتب البريد الإلكتروني" required>
+                <label>رقم الهاتف</label>
+                <input type="tel" name="phone" placeholder="اكتب رقم الهاتف" required>
+                <div class="checkout-order">
+                    <h3>تفاصيل الطلب</h3>
+                    <p>${orderDetails}</p>
+                    <div class="checkout-final">
+                        <span>الإجمالي النهائي</span>
+                        <b>${finalTotal} ج.م</b>
+                    </div>
+                </div>
+                <input type="hidden" name="order" value="${orderDetails.replace(/"/g, '&quot;')}">
+                <input type="hidden" name="total" value="${finalTotal} ج.م">
+                <input type="hidden" name="_subject" value="طلب جديد من YOSEF STORE">
+                <input type="hidden" name="_template" value="table">
+                <button type="submit" class="checkout-submit">تأكيد الطلب</button>
+            </form>
+        </div>
+    `;
+    cart.querySelector('.checkout-close').addEventListener('click', function (e) {
+        e.stopPropagation();
+        cart.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+    cart.querySelector('.checkout-form').addEventListener('submit', function () {
+        localStorage.removeItem('cartProducts');
+    });
 });
