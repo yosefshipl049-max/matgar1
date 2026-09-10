@@ -10,11 +10,7 @@ mark.addEventListener('click', function () {
     document.body.style.overflow = 'auto';
 });
 document.addEventListener('click', function (e) {
-    if (
-        cart.style.display === 'block' &&
-        !cart.contains(e.target) &&
-        !btn.contains(e.target)
-    ) {
+    if (cart.style.display === 'block' && !cart.contains(e.target) && !btn.contains(e.target)) {
         cart.style.display = 'none';
         document.body.style.overflow = 'auto';
     }
@@ -31,7 +27,8 @@ const products = [
         price: '٢٤٩ ج.م',
         evaluation: '4.8',
         del: '',
-        discount: ''
+        discount: '',
+        image: '1.jpeg'
     },
     {
         Type: 'رجالي',
@@ -39,7 +36,8 @@ const products = [
         price: '٤٢٩ ج.م',
         evaluation: '4.5',
         del: '٥٢٠ ج.م',
-        discount: '-18%'
+        discount: '-18%',
+        image: '2.jpeg'
     },
     {
         Type: 'حريمي',
@@ -47,7 +45,8 @@ const products = [
         price: '٥٩٩ ج.م',
         evaluation: '4.9',
         del: '٧٦٠ ج.م',
-        discount: '-21%'
+        discount: '-21%',
+        image: '3.jpeg'
     },
     {
         Type: 'رجالي',
@@ -55,7 +54,8 @@ const products = [
         price: '٦٧٩ ج.م',
         evaluation: '4.6',
         del: '',
-        discount: ''
+        discount: '',
+        image: '4.jpeg'
     },
     {
         Type: 'رجالي',
@@ -63,7 +63,8 @@ const products = [
         price: '٤٨٩ ج.م',
         evaluation: '4.7',
         del: '٥٧٠ ج.م',
-        discount: '-14%'
+        discount: '-14%',
+        image: '5.jpeg'
     },
     {
         Type: 'أطفال',
@@ -71,7 +72,8 @@ const products = [
         price: '٣٢٩ ج.م',
         evaluation: '4.8',
         del: '',
-        discount: ''
+        discount: '',
+        image: '6.jpeg'
     },
     {
         Type: 'حريمي',
@@ -79,7 +81,8 @@ const products = [
         price: '٧٤٩ ج.م',
         evaluation: '4.9',
         del: '٩٨٠ ج.م',
-        discount: '-24%'
+        discount: '-24%',
+        image: '7.jpeg'
     },
     {
         Type: 'حريمي',
@@ -87,7 +90,8 @@ const products = [
         price: '٨٢٩ ج.م',
         evaluation: '4.8',
         del: '',
-        discount: ''
+        discount: '',
+        image: '8.jpeg'
     },
     {
         Type: 'أحذية',
@@ -95,31 +99,29 @@ const products = [
         price: '٧١٩ ج.م',
         evaluation: '4.6',
         del: '٨٥٠ ج.م',
-        discount: '-15%'
+        discount: '-15%',
+        image: '9.jpeg'
     },
     {
         Type: 'إكسسوارات',
-        name: 'كاب',
-        price: '١٥٩ ج.م',
-        evaluation: '4.5',
-        del: '',
-        discount: ''
+        name: 'كاب', price: '١٥٩ ج.م',
+        evaluation: '4.5', del: '',
+        discount: '',
+        image: '10.jpeg'
     },
     {
         Type: 'إكسسوارات',
-        name: 'حقيبة',
-        price: '٥٤٩ ج.م',
-        evaluation: '4.8',
-        del: '٦٦٠ ج.م',
-        discount: '17%'
+        name: 'حقيبة', price: '٥٤٩ ج.م',
+        evaluation: '4.8', del: '٦٦٠ ج.م',
+        discount: '17%',
+        image: '11.jpeg'
     },
     {
         Type: 'إكسسوارات',
-        name: 'ساعة',
-        price: '٣٨٩ ج.م',
-        evaluation: '4.6',
-        del: '',
-        discount: ''
+        name: 'ساعة', price: '٣٨٩ ج.م',
+        evaluation: '4.6', del: '',
+        discount: '',
+        image: '12.jpeg'
     }
 ];
 const product = [
@@ -150,7 +152,7 @@ for (let i = 0; i < products.length; i++) {
     cards.innerHTML += `
         <div class="card">
             <div>
-                <img src="./image/${i + 1}.jpeg" alt="">
+                <img src="./image/${products[i].image}" alt="">
                 <i class="fa-regular fa-heart"></i>
                 <p class="p">${products[i].discount}</p>
             </div>
@@ -172,6 +174,17 @@ for (let i = 0; i < products.length; i++) {
 }
 let container = document.querySelector('#container');
 let card = cards.querySelectorAll('.card');
+let hearts = cards.querySelectorAll('.fa-heart');
+for (let i = 0; i < hearts.length; i++) {
+    hearts[i].addEventListener('click', function () {
+        hearts[i].style.color = 'red';
+        message.innerHTML = 'تم اضافة المنتج الي المفضله';
+        message.style.display = 'block';
+        setTimeout(function () {
+            message.style.display = 'none';
+        }, 1000);
+    });
+}
 container.innerHTML = '';
 for (let i = 0; i < product.length; i++) {
     container.innerHTML += `
@@ -198,31 +211,29 @@ search.addEventListener('keyup', function () {
         }
     }
 });
-let cartProducts = [];
+let cartProducts = JSON.parse(localStorage.getItem('cartProducts')) || [];
 let add = cards.querySelectorAll('.btn-one');
 let cartContainer = cart.querySelector('.container');
 let emptyContainer = cart.querySelector('.empty-container');
 let cartTotal = cart.querySelector('.cart-total');
 let cartCount = document.querySelector('#cartCount');
+let cartNumber = document.querySelector('#cartNumber');
 let subTotal = document.querySelector('#subTotal');
+let message = document.querySelector('#message');
 let totalPrice = document.querySelector('#totalPrice');
 cartContainer.style.display = 'none';
 cartTotal.style.display = 'none';
-for (let i = 0; i < add.length; i++) {
-    add[i].addEventListener('click', function () {
-        cartProducts.push(products[i]);
-        cartCount.innerHTML = `سلة التسوق (${cartProducts.length})`;
+function showCart() {
+    if (cartProducts.length > 0) {
         emptyContainer.style.display = 'none';
         cartContainer.style.display = 'flex';
         cartTotal.style.display = 'block';
         cartContainer.innerHTML = '';
         let total = 0;
         for (let j = 0; j < cartProducts.length; j++) {
-            let price = cartProducts[j].price
-                .replace(' ج.م', '')
-                .replace(/[٠-٩]/g, function (num) {
-                    return '٠١٢٣٤٥٦٧٨٩'.indexOf(num);
-                });
+            let price = cartProducts[j].price.replace('ج.م', '').replace(/[٠-٩]/g, function (num) {
+                return '٠١٢٣٤٥٦٧٨٩'.indexOf(num);
+            });
             total += Number(price);
             cartContainer.innerHTML += `
                 <div class="cart-product">
@@ -230,14 +241,47 @@ for (let i = 0; i < add.length; i++) {
                         <h3>${cartProducts[j].name}</h3>
                         <p>${cartProducts[j].Type}</p>
                         <b>${cartProducts[j].price}</b>
+                        <button class="delete-product" data-index="${j}"><i class="fa-solid fa-trash"></i></button>
                     </div>
                     <div class="cart-image">
-                        <img src="./image/${products.indexOf(cartProducts[j]) + 1}.jpeg" alt="">
+                        <img src="./image/${cartProducts[j].image}" alt="">
                     </div>
                 </div>
             `;
         }
+        cartNumber.innerHTML = cartProducts.length;
+        cartCount.innerHTML = `سلة التسوق (${cartProducts.length})`;
         subTotal.innerHTML = `${total} ج.م`;
         totalPrice.innerHTML = `${total + 55} ج.م`;
+    } else {
+        emptyContainer.style.display = 'flex';
+        cartContainer.style.display = 'none';
+        cartTotal.style.display = 'none';
+        cartNumber.innerHTML = '0';
+        cartCount.innerHTML = 'سلة التسوق (0)';
+        subTotal.innerHTML = '0 ج.م';
+        totalPrice.innerHTML = '55 ج.م';
+    }
+}
+for (let i = 0; i < add.length; i++) {
+    add[i].addEventListener('click', function () {
+        cartProducts.push(products[i]);
+        localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+        message.innerHTML = 'تم اضافة المنتج الي السله';
+        message.style.display = 'block';
+        setTimeout(function () {
+            message.style.display = 'none';
+        }, 1000);
+        showCart();
     });
 }
+showCart();
+cartContainer.addEventListener('click', function (e) {
+    let button = e.target.closest('.delete-product');
+    if (button) {
+        let index = button.dataset.index;
+        cartProducts.splice(index, 1);
+        localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+        showCart();
+    }
+});
